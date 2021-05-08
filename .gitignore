@@ -1,13 +1,8 @@
 input/*
 output/*
-data_es/*
-data_mongo/*
-data_psql/*
-mlruns/*
-src/mlruns/*
-importance/*
-loss/*
-models/*
+tabelog01/docker_es/data_es/*
+tabelog01/docker_mongo/data_mongo/*
+tabelog01/docker_psql/data_psql/*
 *.vec
 *.json
 *.csv
