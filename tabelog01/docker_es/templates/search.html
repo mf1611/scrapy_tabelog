@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Elasticsearchによる全文検索</title>
+    </head>
+    <body>
+        <!--検索フォーム-->
+        <h2>食べログ_高スコア店（神奈川県）検索</h2>
+        <form action='/' method='post'>
+            <input type="text" name="q">
+            <input type="submit" value="検索する">
+        </form>
+        
+        <!--検索結果-->
+        <!--引数のpagesをforループで回す-->
+        {% for page in pages: %}
+            <div>
+                <!--pageが'_source'の中に各fieldを持っているので、それぞれ表示'-->
+                <h3><a href="{{ page["_source"]["url"] }}">{{ page["_source"]["name"] }}</a></h3>
+                <div>
+                    ジャンル：{{ page["_source"]["genre"] }} <br>
+                    最寄駅：{{ page["_source"]["station"] }} <br>
+                    交通手段：{{ page["_source"]["transportation"] }}
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mongo
+    container_name: mongo_tabelog
+    volumes:
+      - $PWD/data_mongo:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: P@ssw0rd

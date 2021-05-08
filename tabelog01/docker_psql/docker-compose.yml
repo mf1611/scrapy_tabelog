@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: postgres
+    container_name: postgres_tabelog
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P@ssw0rd
+    volumes:
+      - $PWD/data_psql:/var/lib/postgresql/data
+    ports:
+      - 5532:5432

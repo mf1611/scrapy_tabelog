@@ -1,0 +1,14 @@
+version: '3'
+services:
+  elasticsearch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elasticsearch_kuromoji
+    container_name: es_tabelog
+    volumes:
+      - $PWD/data_es:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node # es7以上の場合、これを指定する必要がある
